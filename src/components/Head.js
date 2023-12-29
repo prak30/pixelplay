@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { HAMBURGER_LOGO, YOUTUBE_LOGO } from "../utils/common";
+import Sidebar from "./Sidebar";
 
-const Head = () => {
+const Head = ({ collapseSidebar }) => {
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
       <div className="flex col-span-1">
-        <img className="h-8" src={HAMBURGER_LOGO} alt="hamburger" />
-        <img className="h-8" src={YOUTUBE_LOGO} alt="youtube" />
+        <img
+          onClick={collapseSidebar}
+          className="h-8 mr-2"
+          src={HAMBURGER_LOGO}
+          alt="hamburger"
+        />
+        <img className="h-8 ml-2" src={YOUTUBE_LOGO} alt="youtube" />
       </div>
       <div className="col-span-10">
         <input
