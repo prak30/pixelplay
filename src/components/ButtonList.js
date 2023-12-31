@@ -2,27 +2,32 @@ import React from "react";
 import Button from "./Button";
 
 const ButtonList = () => {
+  const buttonList = [
+    "All",
+    "Live",
+    "Music",
+    "NBA",
+    "Startups",
+    "Finance",
+    "NFT",
+    "Philosophy",
+    "History",
+    "Literature",
+    "Travel",
+    "LifeStyle",
+    "Dancing",
+    "Comedy",
+    "Politics",
+    "Gaming",
+    "Cooking",
+    "ComputerScience",
+    "Art",
+  ];
   return (
     <div className="flex">
-      <Button name="All" />
-      <Button name="Live" />
-      <Button name="Music" />
-      <Button name="NBA" />
-      <Button name="Startups" />
-      <Button name="Finance" />
-      <Button name="NFT" />
-      <Button name="Philosophy" />
-      <Button name="History" />
-      <Button name="Literature" />
-      <Button name="Travel" />
-      <Button name="LifeStyle" />
-      <Button name="Dancing" />
-      <Button name="Politics" />
-      <Button name="Comedy" />
-      <Button name="Gaming" />
-      <Button name="Cooking" />
-      <Button name="Computer Science" />
-      <Button name="Art" />
+      {buttonList.map((name) => (
+        <Button key={name} name={name} />
+      ))}
     </div>
   );
 };
