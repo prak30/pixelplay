@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  if (!isMenuOpen) return null;
   return (
     <div className="m-2 p-5 shadow-lg w-52">
       <ul>
@@ -23,7 +26,7 @@ const Sidebar = () => {
         <li className="m-1 p-1 ">Channel1</li>
         <li className="m-1 p-1 ">Channel2</li>
         <li className="m-1 p-1 ">Channel3</li>
-        <li className="m-1 p-1 ">Channel14</li>
+        <li className="m-1 p-1 ">Channel4</li>
         <li className="m-1 p-1 ">Channel5</li>
         <li className="m-1 p-1 ">Channel6</li>
       </ul>

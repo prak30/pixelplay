@@ -1,15 +1,15 @@
 import Head from "../src/components/Head";
 import Body from "./components/Body";
-import { useState } from "react";
+import { Provider } from "react-redux";
+import store from "./utils/store";
+
 function App() {
-  const [sidebar, setSideBar] = useState("true");
-  const handleHamburgerClick = () => {
-    setSideBar(!sidebar);
-  };
   return (
     <div className="App">
-      <Head collapseSidebar={handleHamburgerClick} />
-      {sidebar && <Body />}
+      <Provider store={store}>
+        <Head />
+        <Body />
+      </Provider>
     </div>
   );
 }

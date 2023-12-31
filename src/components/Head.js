@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import { HAMBURGER_LOGO, YOUTUBE_LOGO } from "../utils/common";
-import Sidebar from "./Sidebar";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/appSlice";
 
-const Head = ({ collapseSidebar }) => {
+const Head = () => {
+  const dispatch = useDispatch();
+  const toggleMenuHandler = () => {
+    dispatch(toggleMenu());
+  };
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
       <div className="flex col-span-1">
         <img
-          onClick={collapseSidebar}
-          className="h-8 mr-2"
+          onClick={toggleMenuHandler}
+          className="h-8 mr-2 cursor-pointer"
           src={HAMBURGER_LOGO}
           alt="hamburger"
         />
