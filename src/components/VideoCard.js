@@ -7,11 +7,13 @@ const VideoCard = ({ video }) => {
   const channelTitle = video?.snippet?.channelTitle;
   const viewCount = video?.statistics.viewCount;
   return (
-    <div className="w-96 mb-2 pb-2">
-      <img src={url} alt="thumbnail" />
-      <h1 className="text-bold">{title}</h1>
-      <h2>{channelTitle}</h2>
-      <h3>{viewCount} views</h3>
+    <div className="p-2 m-2 w-80 shadow-lg">
+      <img className="rounded-lg" src={url} alt="thumbnail" />
+      <ul>
+        <li className="text-bold py-2 ">{title}</li>
+        <li>{channelTitle}</li>
+        <li>{viewCount}</li>
+      </ul>
     </div>
   );
 };
