@@ -36,7 +36,7 @@ const Head = () => {
         />
         <img className="h-8 ml-2" src={YOUTUBE_LOGO} alt="youtube" />
       </div>
-      <div className="col-span-10">
+      <div className="col-span-10 relative">
         <div>
           <input
             className="px-5 w-1/2 border border-gray-400 p-1  rounded-l-full"
@@ -52,7 +52,7 @@ const Head = () => {
           </button>
         </div>
         {showSuggestions && (
-          <div className="fixed bg-white py-2 px-2 w-[45rem] shadow-lg rounded-lg border border-gray-100">
+          <div className="absolute bg-white py-2 px-2 w-[45rem] shadow-lg rounded-lg border border-gray-100">
             <ul>
               {suggession.map((s, index) => (
                 <li
