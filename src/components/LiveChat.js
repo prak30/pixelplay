@@ -21,7 +21,7 @@ const LiveChat = () => {
     return () => clearInterval(i);
   }, []);
   return (
-    <div className="ml-2 w-full h-[600px] p-2 border border-black rounded-lg overflow-y-scroll">
+    <div className="ml-2 w-full h-[600px] p-2 border border-black rounded-lg overflow-y-scroll flex-col-reverse flex">
       {chatMessage.map((chatMessage, index) => (
         <ChatMessage
           key={index}
