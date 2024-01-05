@@ -5,11 +5,14 @@ import { toggleMenu } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/common";
 import { useState, useEffect } from "react";
 import { cacheResults } from "../utils/searchSlice";
+import SearchResults from "./SearchResults";
 
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggession, setSuggession] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+
   const searchCache = useSelector((store) => store.search);
   const dispatch = useDispatch();
 
@@ -39,6 +42,23 @@ const Head = () => {
   const toggleMenuHandler = () => {
     dispatch(toggleMenu());
   };
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleApiCall(searchQuery);
+    }
+  };
+  const handleApiCall = (query) => {
+    // Perform your API call here using the searchQuery
+    // Assume the API returns an array of results for simplicity
+    const fakeApiResults = [
+      { id: 1, title: "Result 1" },
+      { id: 2, title: "Result 2" },
+      // Add more results as needed
+    ];
+
+    // Update the state with the search results
+    setSearchResults(fakeApiResults);
+  };
   return (
     <div className="grid grid-flow-col p-5 m-2 shadow-lg">
       <div className="flex col-span-1">
@@ -60,7 +80,9 @@ const Head = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setShowSuggestions(false)}
+            onKeyPress={handleKeyPress}
           />
+
           <button className="border border-gray-400 p-1 rounded-r-full">
             🔍
           </button>
@@ -79,6 +101,7 @@ const Head = () => {
             </ul>
           </div>
         )}
+        {searchResults.length > 0 && <SearchResults results={searchResults} />}
       </div>
       <div className="col-span-1">
         <img
